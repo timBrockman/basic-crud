@@ -1,0 +1,28 @@
+{
+  "name": "basic-crud",
+  "version": "0.0.1",
+  "description": "A quick Express + mongoskin RESTfull api exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha server.test.js"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongoskin"
+  ],
+  "author": "timBrockman",
+  "license": "ISC",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "superagent": "^1.1.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
+    "mongodb": "^1.4.35",
+    "mongoskin": "^1.4.13",
+    "morgan": "^1.5.2"
+  }
+}
