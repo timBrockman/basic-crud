@@ -8,7 +8,7 @@ var api = require('./api/index');
 
 //var app = express();
 
-// some stuff to help me get my module & exports legs back
+/* some stuff to help me get my module & exports legs back
 //simple functions
 console.log(core.mxLegs.checkMe());
 console.log(core.mxLegs.checkMeToo());
@@ -19,3 +19,4 @@ console.log(core.mxSpace.version);
 console.log(core.mxSpace.message());
 console.log(core.mxSpace.other('tab'));
 console.log(core.mxSpace.foo);
+*/

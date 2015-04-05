@@ -1,5 +1,5 @@
 # q/d express + mongoskin RESTful api project
-this is still raw..
+this is still raw.. very much
 
 ## todo:
   - [ ] share on github for easy access
