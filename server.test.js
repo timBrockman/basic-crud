@@ -37,7 +37,7 @@ describe('Simple RESTful api server.. ', function(){
       });
   });
   it('should retrieve a list of stuff', function(done){
-    superagent.get('http://localhost:8080/api/test')
+    superagent.get('http://localhost:8080/api/test/')
       .end(function(err, res){
         expect(err).to.eql(null);
         expect(res.body).to.be.an('object');
@@ -45,35 +45,35 @@ describe('Simple RESTful api server.. ', function(){
       });
   });
   it('should update some object', function(done){
-    superagent.put('http://localhost:8080/api/test' + id)
+    superagent.put('http://localhost:8080/api/test/' + id)
       .send({
         name  : 'fu',
         job   : 'barrister',
         email : 'fu@barrister.com'
       })
       .end(function(err,res){
+        //console.log(res); yuck bad tests fixed
         expect(err).to.eql(null);
-        expect(res.body).to.be.an('object');
-        expect(res.body.msg).to.eql('success');
+        expect(res.text).to.eql('success');
         done();
       });
   });
   it('shoud check updated object', function(done){
-    superagent.get('http://localhost:8080/api/test' + id)
+    superagent.get('http://localhost:8080/api/test/' + id)
       .end(function(err, res){
+        //console.log(res.body);
         expect(err).to.eql(null);
         expect(res.body).to.be.an('object');
-        expect(res.body._id).to.eql(id);
         expect(res.body.name).to.eql('fu');
         done();
       });
   });
   it('should delete some object', function(done){
-    superagent.del('http://localhost:8080/api/test' + id)
+    superagent.del('http://localhost:8080/api/test/' + id)
       .end(function(err,res){
+        //console.log(res);
         expect(err).to.eql(null);
-        expect(res.body).to.be.an('object');
-        expect(res.body.msg).to.eql('success');
+        expect(res.text).to.eql('success');
         done();
       });
   });
