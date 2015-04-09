@@ -1,17 +1,21 @@
 //main rest server file
-// todo: pass all tests
+// xtodo: pass all tests
 // todo: refactor for different organization
 
 var express = require('express');
 var mongoskin = require('mongoskin');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var apiRoutes = require('./api/index');
 // todo: breakup into require module.exports
 
 var app = express();
 //middleware
-app.use(bodyParser());
+// todo: separate router and app level middleware
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 app.use(logger('dev'));
+
 //mongo local
 var db = mongoskin.db('mongodb://@localhost:27017/test',{safe:true});
 //param for collections (mongoskin)
@@ -26,48 +30,20 @@ app.get('/', function(req, res, next){
 });
 
 //list
-app.get('/api/:collectionName', function(req, res, next){
-  req.collection.find({}, {limit:5, sort:{'_id':- 1}})
-    .toArray(function(err, results){
-      if(err) return next(err);
-      res.send(results);
-    });
-});
+apiRoutes.testRoutes.listTest(app);
 
 //create
-app.post('/api/:collectionName', function(req, res, next){
-  req.collection.insert(req.body, {}, function(err, results){
-    if(err) return next(err);
-    res.send(results);
-  });
-});
+apiRoutes.testRoutes.createTest(app);
 
-//get one
-app.get('/api/:collectionName/:id', function(req, res, next){
-  req.collection.findById(req.params.id, function(err, results){
-    if(err) return next(err);
-    res.send(results);
-  });
-});
+//get one (required version passed)
+//todo: consider passing router instead of app
+apiRoutes.testRoutes.getTest(app);
 
 //update
-app.put('/api/:collectionName/:id', function(req, res, next){
-  req.collection.updateById(req.params.id,
-    {$set: req.body},
-    {safe: true, multi: false},
-    function(err, results){
-      if(err) return next(err);
-      res.send((results===1)?'success' : err);
-    });
-});
+apiRoutes.testRoutes.updateTest(app);
 
 //delete
-app.delete('/api/:collectionName/:id', function(req, res, next){
-  req.collection.removeById(req.params.id, function(err, results){
-    if(err) return next(err);
-    res.send((results === 1)?'success': err);
-  });
-});
+apiRoutes.testRoutes.deleteTest(app);
 
 //listener @8080
 app.listen(8080, function(){

@@ -13,7 +13,12 @@ this is still raw..
   - [x] all 6 tests pass
   - [ ] start refactoring
   - [ ] a little extra validation or formatting
-  - [ ] better organization (more named functions, less banana)
+  - [ ] better organization (more named functions, more modular, less banana)
   - [x] consider using config file for db 
   - [ ] config file for api key stuff (more github friendly)
   - [ ] consider mongolabs or mongohq in addition to local
+  - [ ] consider some authz & authn
+  - [ ] consider breaking route operations (and maybe helpers) out
+  - [ ] separate router and app level middleware
+  - [ ] breakup into require module.exports
+  - [ ] consider passing router instead of app
