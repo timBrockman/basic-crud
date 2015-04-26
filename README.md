@@ -14,6 +14,6 @@ this is still raw..
   - [ ] separate router and app level middleware
   - [x] breakup into require module.exports
   - [ ] consider passing router (v4) instead of app (v3) 
-  - [ ] consider serve static
-  - [ ] consider handlebars
+  - [x] consider serve static
+  - [x] consider handlebars
   

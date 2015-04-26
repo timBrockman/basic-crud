@@ -20,7 +20,7 @@ describe('Simple RESTful api server.. ', function(){
         expect(err).to.eql(null);
         expect(res).to.be.ok();
         expect(res.body).to.be.an('object');
-        expect(res.body[0]._id.length).to.eql(24);//mongo id hex value
+        expect(res.body[0]._id.length).to.eql(24);//mongo id length
         //set id for other tests
         id = res.body[0]._id;
         done();
