@@ -23,7 +23,7 @@
     "consolidate": "^0.12.1",
     "express": "^4.12.3",
     "handlebars": "^4.0.0",
-    "mongodb": "^1.4.35",
+    "mongodb": "^2.0.0",
     "mongoskin": "^1.4.13",
     "morgan": "^1.5.2"
   }
